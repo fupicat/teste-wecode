@@ -7,6 +7,7 @@ margin: auto;
 nav {
   display: flex;
   justify-content: space-between;
+  gap: 2rem;
   position: absolute;
   width: 100%;
   max-width: 1920px;
