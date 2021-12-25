@@ -1,6 +1,18 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+@media screen and (max-width: 1366px) {
+  :root {
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    font-size: 50%;
+  }
+}
+
 body {
   background: #EEEDF2;
 }

@@ -5,6 +5,7 @@ max-width: 1920px;
 margin: auto;
 
 nav {
+  overflow-x: hidden;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -17,6 +18,7 @@ nav {
   .main {
     display: flex;
     gap: 14.5rem;
+    align-items: center;
 
     .logo {
       font-weight: 500;
@@ -39,6 +41,10 @@ nav {
       display: flex;
       gap: 9.375rem;
       align-items: center;
+
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
 
       a {
         font-weight: 500;
@@ -74,6 +80,88 @@ nav {
       background: #595959;
     }
   }
+
+  .pc {
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .mobile {
+    cursor: pointer;
+    display: none;
+
+    @media screen and (max-width: 1024px) {
+      display: block;
+    }
+  }
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 2;
+  gap: 9.375rem;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%);
+
+  transition: transform 300ms;
+
+  background: white;
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    font-weight: 500;
+    font-size: 2.25rem;
+    line-height: 3.375rem;
+
+    text-decoration: none;
+    color: #333333;
+
+    :hover {
+      text-decoration: underline;
+      color: #F46442;
+    }
+  }
+
+  .button {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    padding: 1.0625rem 3.4375rem 1.0994rem 3.4375rem;
+    white-space: nowrap;
+    
+    text-decoration: none;
+    background: #333333;
+    border-radius: 100px;
+    color: #FFFFFF;
+
+    transition: background-color 200ms;
+
+    :hover {
+      background: #595959;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+  }
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.mobile-nav.open {
+  transform: translateX(0%);
 }
 
 section.main {
@@ -81,13 +169,14 @@ section.main {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  overflow-x: hidden;
 
   .title {
     padding-left: 4.875rem;
     padding-bottom: 2.8763rem;
     padding-top: 21.9375rem;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 768px) {
       display: flex;
       flex-direction: column;
       padding-left: 2rem;
@@ -103,7 +192,7 @@ section.main {
 
       color: #333333;
 
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 768px) {
         font-size: 20vw;
         line-height: 100%;
         text-align: center;
@@ -116,7 +205,7 @@ section.main {
       font-size: 13.25rem;
       line-height: 19.875rem;
 
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 768px) {
         margin-left: 0;
         font-size: 20vw;
         margin-top: 0;
@@ -129,7 +218,7 @@ section.main {
       align-items: center;
       background: white;
       border-radius: 99px;
-      width: 797px;
+      width: 49.8125rem;
 
       @media screen and (max-width: 1024px) {
         width: 100%;
@@ -138,8 +227,8 @@ section.main {
 
       input[type=email] {
         font-weight: 500;
-        font-size: 24px;
-        line-height: 36px;
+        font-size: 1.5rem;
+        line-height: 2.25rem;
         margin: 4.75rem 4.0625rem 4.125rem 4.0625rem;
         border: none;
         width: 100%;
@@ -155,7 +244,7 @@ section.main {
         font-size: 1.5rem;
         line-height: 2.25rem;
         text-align: center;
-        padding: 32px 63px 31px 63px;
+        padding: 2rem 3.9375rem 1.9375rem 3.9375rem;
         margin: 0 2.75rem 0 0;
         white-space: nowrap;
 
@@ -187,6 +276,7 @@ section.main {
           background: url("/Done.png");
           background-repeat: no-repeat;
           background-position: center 200%;
+          background-size: 25%;
         }
       }
 
@@ -214,13 +304,13 @@ section.main {
 
     background: url("/Fogueira.png");
     background-repeat: no-repeat;
+    background-size: contain;
 
     @media screen and (max-width: 1024px) {
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
-      background-size: contain;
       background-position: 100%;
       margin: 0px 4rem;
     }

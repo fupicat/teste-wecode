@@ -1,6 +1,7 @@
 import { Container } from "./style"
 import { useForm } from "react-hook-form";
 import { useState } from 'react';
+import Image from "next/image";
 
 export default function Home() {
   const [enviou, setEnviou] = useState(false);
@@ -10,6 +11,8 @@ export default function Home() {
     setEnviou(true);
     console.log(data);
   };
+
+  const [menu, setMenu] = useState(false);
 
   return (
     <Container>
@@ -24,8 +27,19 @@ export default function Home() {
             <a href="#">News</a>
           </div>
         </div>
-        <a className="button" href="#">Sign up</a>
+        <a className="button pc" href="#">Sign up</a>
+        <div className="mobile" onClick={() => setMenu(true)}>
+          <Image src="/Menu.png" width={48} height={48} />
+        </div>
       </nav>
+
+      <div className={`mobile-nav ${menu ? "open" : ""}`}>
+        <Image src="/Close.png" onClick={() => setMenu(false)} width={48} height={48} />
+        <a href="#">Hello</a>
+        <a href="#">About</a>
+        <a href="#">News</a>
+        <a className="button" href="#">Sign up</a>
+      </div>
 
       <section className="main">
         <div className="title">
