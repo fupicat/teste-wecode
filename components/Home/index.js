@@ -27,7 +27,7 @@ export default function Home() {
             <a href="#">News</a>
           </div>
         </div>
-        <a className="button pc" href="#">Sign up</a>
+        <a className="button pc" href="#sign-up">Sign up</a>
         <div className="mobile" onClick={() => setMenu(true)}>
           <Image src="/Menu.png" width={48} height={48} />
         </div>
@@ -35,17 +35,17 @@ export default function Home() {
 
       <div className={`mobile-nav ${menu ? "open" : ""}`}>
         <Image src="/Close.png" onClick={() => setMenu(false)} width={48} height={48} />
-        <a href="#">Hello</a>
-        <a href="#">About</a>
-        <a href="#">News</a>
-        <a className="button" href="#">Sign up</a>
+        <a onClick={() => setMenu(false)} href="#">Hello</a>
+        <a onClick={() => setMenu(false)} href="#">About</a>
+        <a onClick={() => setMenu(false)} href="#">News</a>
+        <a onClick={() => setMenu(false)} className="button" href="#sign-up">Sign up</a>
       </div>
 
       <section className="main">
         <div className="title">
           <h1 className="summer">SUMMER</h1>
           <h1 className="camp">CAMP&rsquo;21</h1>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form id="sign-up" onSubmit={handleSubmit(onSubmit)}>
             <input type="email" placeholder="Email address" {...register("email", { required: true, onChange: () => setEnviou(false) })} />
             <button className={enviou ? "enviado" : ""} type="submit">Sign up</button>
           </form>
